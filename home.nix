@@ -7,17 +7,17 @@
 
   programs.home-manager.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme.name = "kde";
-    style.name = "kvantum";
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "kde";
+  #   style.name = "kvantum";
 
-    kvantum = {
-      enable = true;
-      themes = [ pkgs.whitesur-kde ];
-      settings.General.theme = "WhiteSurDark";
-    };
-  };
+  #   kvantum = {
+  #     enable = true;
+  #     themes = [ pkgs.whitesur-kde ];
+  #     settings.General.theme = "WhiteSurDark";
+  #   };
+  # };
 
   xdg = {
     desktopEntries.vesktop = {
@@ -66,7 +66,7 @@
   };
 
   programs.plasma = {
-    enable = true;
+    enable = false;
     configFile = {
       kcminputrc = {
         Mouse = {
