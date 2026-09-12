@@ -265,6 +265,7 @@
       hunspell
       hunspellDicts.en_US
       hunspellDicts.pt_BR
+      chromium
 
       xsettingsd
       xrdb
