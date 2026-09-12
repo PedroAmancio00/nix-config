@@ -245,6 +245,7 @@
       fastfetch
       git
       github-desktop
+      git-credential-manager
 
       # Python
       python3
