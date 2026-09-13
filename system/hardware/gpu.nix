@@ -24,7 +24,7 @@
     # Installs nvidia-settings.
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.new_feature;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # Display configuration (resolution, scale, refresh rate, VRR and HDR) is

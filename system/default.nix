@@ -18,6 +18,7 @@
     ./users.nix
     ./desktop.nix
     ./gnome.nix
+    ./hyprland.nix
     ./fonts.nix
     ./shell.nix
     ./gaming.nix

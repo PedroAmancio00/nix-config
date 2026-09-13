@@ -7,6 +7,7 @@
     ./theming.nix
     ./applications.nix
     ./packages.nix
+    ./hyprland
   ];
 
   home.username = username;
