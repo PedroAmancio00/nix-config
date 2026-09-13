@@ -8,6 +8,10 @@
       findDesktop = ''
         find /run/current-system/sw/share/applications -iname "*$argv[1]*"
       '';
+      
+      cB = ''
+        git branch $argv[1] && git switch $argv[1]
+      '';
     };
 
     interactiveShellInit = ''
