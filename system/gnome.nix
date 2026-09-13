@@ -10,6 +10,7 @@
     gnome-tweaks
     dconf-editor
 
+
     # --- Shell extensions ---
     gnome-shell-extensions # bundle that provides user-themes
     gnomeExtensions.user-themes # allows a custom Shell theme

@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789269425,
-        "narHash": "sha256-54zlPMSTvXRE0SzeabsNn0QmP5DXGoVLTUyvrMNzqa0=",
+        "lastModified": 1789273010,
+        "narHash": "sha256-E7dWx+utzZPpqQsBUd5sMimKTWMEEbTKFD+ya99Shps=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "73d6a67161df12bfbf327afc2b8e065174f46258",
+        "rev": "fdc36b12804b0179b24a5ffd282e4c95c37072e2",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
     "mactahoe-gtk-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1789030263,
-        "narHash": "sha256-P4zevOTHd7KKLj3a9wkaY96tMFMg7iZEpz3NkbdyTwM=",
+        "lastModified": 1789278636,
+        "narHash": "sha256-uF8WDooeY3/ZFJlGQpumHtOuf+lLD/aknzaiF/yDRIM=",
         "owner": "vinceliuice",
         "repo": "MacTahoe-gtk-theme",
-        "rev": "0aa2a2ba1e07277a49dae9a3b90881c899d2afbe",
+        "rev": "09198632e789f72ed46574812ef6d389a53809f0",
         "type": "github"
       },
       "original": {

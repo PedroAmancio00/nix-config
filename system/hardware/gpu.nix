@@ -3,7 +3,8 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-
+  services.lact.enable = true;
+  
   hardware.graphics = {
     enable = true;
     # 32-bit drivers, required by Steam and most Proton titles.

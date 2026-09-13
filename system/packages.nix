@@ -79,6 +79,8 @@
       hunspellDicts.en_US
       hunspellDicts.pt_BR
 
+      #gpu handler
+
       file
     ])
     ++ [
