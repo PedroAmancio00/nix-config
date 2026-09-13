@@ -2,20 +2,29 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./kernel.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./kernel.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nix.settings.warn-dirty = false;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,7 +66,7 @@
   services.xserver.xkb = {
     layout = "us,br";
     variant = "";
-    options = "grp:alt_shift_toggle";  # Alt+Shift alterna entre os layouts
+    options = "grp:alt_shift_toggle"; # Alt+Shift alterna entre os layouts
   };
 
   # Enable CUPS to print documents.
@@ -76,7 +85,14 @@
     extraConfig.pipewire."92-audio-quality" = {
       "context.properties" = {
         "default.clock.rate" = 192000;
-        "default.clock.allowed-rates" = [ 44100 48000 88200 96000 176400 192000 ];
+        "default.clock.allowed-rates" = [
+          44100
+          48000
+          88200
+          96000
+          176400
+          192000
+        ];
         "default.clock.quantum" = 1024;
         "default.clock.min-quantum" = 32;
         "default.clock.max-quantum" = 8192;
@@ -105,10 +121,13 @@
   users.users."maerllyn" = {
     isNormalUser = true;
     description = "Maerllyn";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
     shell = pkgs.fish;
   };
@@ -159,7 +178,6 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 
-
   # Steam
   programs.steam = {
     enable = true;
@@ -187,6 +205,7 @@
     shellAliases = {
       upgrade = "sudo nix flake update --flake /etc/nixos";
       update = "sudo nixos-rebuild switch";
+      finddesktop = "find /run/current-system/sw/share/applications -iname";
     };
   };
   time.hardwareClockInLocalTime = true;
@@ -202,6 +221,9 @@
     enable = true;
     xdgOpenUsePortal = true;
   };
+
+  home-manager.backupFileExtension = null;
+  home-manager.backupCommand = "rm -f";
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -239,55 +261,62 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-      vscode
-      spotify
-      psmisc
-      fastfetch
-      git
-      github-desktop
-      git-credential-manager
+    vscode
+    spotify
+    psmisc
+    fastfetch
+    git
+    github-desktop
+    git-credential-manager
 
-      # Python
-      python3
-      btop
+    # Python
+    python3
+    btop
 
-      # Node.js
-      nodejs_24
+    # Node.js
+    nodejs_24
 
-      dotnet-sdk_10
+    dotnet-sdk_10
 
-      # Java
-      jdk25
+    # Java
+    jdk25
 
-      vesktop
-      whatsapp-electron
+    vesktop
+    whatsapp-electron
 
-      hunspell
-      hunspellDicts.en_US
-      hunspellDicts.pt_BR
-      chromium
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.pt_BR
+    chromium
+    jq
 
-      xsettingsd
-      xrdb
-      mangohud
-      gamemode
-      gamescope
-      protonplus
-      whitesur-kde
-      whitesur-icon-theme
-      kdePackages.qqc2-desktop-style
-      kdePackages.qtstyleplugin-kvantum
-      
-      (colloid-icon-theme.override {
-        schemeVariants = [ "dracula" ];
-        colorVariants = [ "purple" ];
-      })
-      (unityhub.override {
-        extraLibs = pkgs: [ pkgs.p7zip ];
-      })
+    xsettingsd
+    xrdb
+    mangohud
+    gamemode
+    gamescope
+    protonplus
+    whitesur-icon-theme
+    nerd-fonts.jetbrains-mono
+    teamspeak6-client
 
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
+    ptyxis
 
+    gnome-tweaks
+    dconf-editor
+    gnome-shell-extensions
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.user-themes
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.wallpaper-slideshow
+    gnomeExtensions.appindicator
+
+    (unityhub.override {
+      extraLibs = pkgs: [ pkgs.p7zip ];
+    })
+
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
 }
