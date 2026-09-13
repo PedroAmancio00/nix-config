@@ -25,13 +25,15 @@
         startupNotify = true;
       };
 
-      whatsapp-electron = {
-        name = "WhatsApp";
-        exec = "whatsapp-electron --ozone-platform=x11 %U";
-        icon = "whatsapp-electron";
+      "com.github.dagmoller.whatsapp-electron" = {
+        name = "Whatsapp";
+        exec = "whatsapp-electron --ozone-platform=x11 %u";
+        icon = "whatsapp";
         terminal = false;
         categories = [ "Network" "InstantMessaging" ];
-        startupNotify = true;
+        settings = {
+          StartupWMClass = "com.github.dagmoller.whatsapp-electron";
+        };
       };
     };
 
@@ -198,7 +200,7 @@
 
     "org/gnome/desktop/notifications".show-banners = true;
 
-        "org/gnome/mutter".experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer"];
+    "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer"];
   };
 
   gtk = {

@@ -78,4 +78,17 @@
     "vm.dirty_background_bytes" = 67108864;
     "vm.max_map_count" = 2147483642;
   };
+
+  systemd.services.amd-x3d-mode = {
+    description = "Set AMD 3D V-Cache mode";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "sysinit.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      echo cache > /sys/bus/platform/drivers/amd_x3d_vcache/AMDI0101:00/amd_x3d_mode
+    '';
+  };
 }

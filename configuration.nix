@@ -225,6 +225,20 @@
   home-manager.backupFileExtension = null;
   home-manager.backupCommand = "rm -f";
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = false;
+  };
+
+  programs.gamemode = {
+  enable = true;
+  settings = {
+    general = {
+      renice = 10;
+    };
+  };
+};
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
@@ -288,18 +302,20 @@
     hunspellDicts.en_US
     hunspellDicts.pt_BR
     chromium
+    vulkan-tools
     jq
 
     xsettingsd
     xrdb
     mangohud
     gamemode
-    gamescope
     protonplus
     whitesur-icon-theme
     nerd-fonts.jetbrains-mono
     teamspeak6-client
-
+    pciutils
+    usbutils
+    pulseaudio
     ptyxis
 
     gnome-tweaks
