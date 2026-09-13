@@ -80,7 +80,7 @@
       hunspellDicts.pt_BR
 
       #gpu handler
-
+      vulkan-hdr-layer-kwin6 
       file
     ])
     ++ [

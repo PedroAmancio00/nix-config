@@ -12,7 +12,15 @@
     # evaluated from the working tree either way.
     warn-dirty = false;
   };
-
+  nix.gc = {
+  automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d"; 
+  };
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
+  };
   # Required by Steam, NVIDIA drivers, VS Code, Spotify and others.
   nixpkgs.config.allowUnfree = true;
 }

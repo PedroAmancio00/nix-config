@@ -23,11 +23,12 @@
       update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
 
       # Validate syntax without building - much faster than a full rebuild.
-      checkconfig = "nix-instantiate --parse /etc/nixos/flake.nix > /dev/null && echo ok";
+      checkNix = "nix-instantiate --parse /etc/nixos/flake.nix > /dev/null && echo ok";
 
-      # Locate a .desktop file by name, e.g. `finddesktop '*steam*'`.
-      finddesktop = "find /run/current-system/sw/share/applications -iname";
-    };
+      formatNix = "nix run nixpkgs#nixfmt-rfc-style -- .";
+
+      tB = "git switch";
+    };   
   };
 
   programs.starship = {
