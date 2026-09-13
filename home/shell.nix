@@ -28,7 +28,7 @@
       # Validate syntax without building - much faster than a full rebuild.
       checkNix = "nix-instantiate --parse /etc/nixos/flake.nix > /dev/null && echo ok";
 
-      formatNix = "nix run nixpkgs#nixfmt-rfc-style -- .";
+      formatNix = "nix run nixpkgs#nixfmt-tree";
 
       tB = "git switch";
     };

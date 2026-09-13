@@ -33,12 +33,16 @@ in
   # keeps the icon and the Icon= key in sync with the source image on every
   # switch, then nudges accounts-daemon to pick up the change immediately.
   systemd.tmpfiles.settings."10-user-avatar" = {
-    "/var/lib/AccountsService/icons" .d = {
-      mode = "0775"; user = "root"; group = "root";
+    "/var/lib/AccountsService/icons".d = {
+      mode = "0775";
+      user = "root";
+      group = "root";
     };
     "/var/lib/AccountsService/icons/maerllyn"."C+" = {
       argument = "${avatarSource}";
-      mode = "0644"; user = "root"; group = "root";
+      mode = "0644";
+      user = "root";
+      group = "root";
     };
   };
 }

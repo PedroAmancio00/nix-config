@@ -13,9 +13,9 @@
     warn-dirty = false;
   };
   nix.gc = {
-  automatic = true;
+    automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 14d"; 
+    options = "--delete-older-than 14d";
   };
   nix.optimise = {
     automatic = true;

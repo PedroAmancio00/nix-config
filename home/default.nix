@@ -18,17 +18,17 @@
   home.stateVersion = "26.05";
 
   home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  for f in ~/.local/share/applications/*.desktop; do
-    id=$(grep -Eo 'steam://rungameid/[0-9]+' "$f" | sed 's#.*/##') || true
-    [ -n "$id" ] || continue
+    for f in ~/.local/share/applications/*.desktop; do
+      id=$(grep -Eo 'steam://rungameid/[0-9]+' "$f" | sed 's#.*/##') || true
+      [ -n "$id" ] || continue
 
-    want="StartupWMClass=steam_app_$id"
+      want="StartupWMClass=steam_app_$id"
 
-    if ! grep -q "^StartupWMClass=" "$f"; then
-      echo "$want" >> "$f"
-    fi
-  done
-'';
+      if ! grep -q "^StartupWMClass=" "$f"; then
+        echo "$want" >> "$f"
+      fi
+    done
+  '';
 
   programs.home-manager.enable = true;
 }
