@@ -78,6 +78,8 @@
       hunspell
       hunspellDicts.en_US
       hunspellDicts.pt_BR
+
+      file
     ])
     ++ [
       # Packages that come from flake inputs rather than nixpkgs.

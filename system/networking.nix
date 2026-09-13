@@ -2,7 +2,7 @@
 { ... }:
 
 {
-  networking.hostName = "pedro-linux-pc";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # The firewall is on by default. Game-related ports are opened by the Steam

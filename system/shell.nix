@@ -20,7 +20,7 @@
       upgrade = "sudo nix flake update --flake /etc/nixos";
 
       # Build and activate the current configuration.
-      update = "sudo nixos-rebuild switch";
+      update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
 
       # Validate syntax without building - much faster than a full rebuild.
       checkconfig = "nix-instantiate --parse /etc/nixos/flake.nix > /dev/null && echo ok";
