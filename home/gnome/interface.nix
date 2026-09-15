@@ -12,7 +12,6 @@
       # Ask applications to prefer their dark variant. Unlike a GTK theme,
       # this is respected by libadwaita apps as well.
       color-scheme = "prefer-dark";
-
       # Fonts.
       #
       # These are the GNOME defaults, stated explicitly so a future change is
@@ -24,7 +23,12 @@
       document-font-name = "Adwaita Sans 11";
       monospace-font-name = "Monospace 11";
 
-      clock-show-weekday = true;
+      clock-show-weekday = false;
+    };
+
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+      speed = 0.0;
     };
 
     # Titlebar buttons on the right, macOS-style layout notwithstanding.

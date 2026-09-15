@@ -23,6 +23,7 @@
     ./gaming.nix
     ./development.nix
     ./packages.nix
+    ./flatpak.nix
   ];
 
   # The NixOS release this machine was first installed with.

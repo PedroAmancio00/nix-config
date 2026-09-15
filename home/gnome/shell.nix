@@ -16,6 +16,7 @@
         "blur-my-shell@aunetx"
         "clipboard-indicator@tudmotu.com"
         "azwallpaper@azwallpaper.gitlab.com"
+        "hidetopbar@mathieu.bidon.ca"
       ];
 
       # Pinned applications, in dock order. These are .desktop filenames; a

@@ -21,11 +21,12 @@
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      static-blur = false;
       blur = true;
       dynamic-opacity = true;
-      opacity = 230; # 0-255
+      opacity = 210; # 0-255
       blur-on-overview = false;
-      enable-all = false; # opt in per application rather than globally
+      enable-all = true; # opt in per application rather than globally
     };
 
     ##############################################################
@@ -75,6 +76,24 @@
       dash-max-icon-size = 52;
       show-trash = false;
       click-action = "minimize-or-previews";
+      dock-fixed = false; # false = permite auto-hide (obrigatório)
+      autohide = true; # ativa o auto-hide de fato
+      intellihide = false; # false = sempre esconde, não só quando tem janela sobrepondo
+      autohide-in-fullscreen = true; # também esconde em tela cheia
+
+      hide-delay = 0.2; # tempo (segundos) até esconder depois que o mouse sai
+      show-delay = 0.1; # tempo até aparecer quando o mouse chega na borda
+      transparency-mode = "DEFAULT";
+      running-indicator-style = "DOTS";
+    };
+
+    "org/gnome/shell/extensions/hidetopbar" = {
+      enable-active-window = false;
+      enable-intellihide = false; # false = sempre esconde, igual ao dash-to-dock
+      mouse-sensitive = true;
+      mouse-sensitive-fullscreen-window = true;
+      animation-time = 0.2;
+      show-in-overview = true;
     };
   };
 }

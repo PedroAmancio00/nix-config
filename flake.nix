@@ -14,6 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Declarative Flatpak management.
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     # Upstream source for the MacTahoe GTK theme. Marked `flake = false`
     # because the repository is a plain Git tree with no flake.nix.
     mactahoe-gtk-src = {
@@ -44,6 +47,9 @@
         modules = [
           # Custom packages and package overrides.
           { nixpkgs.overlays = [ (import ./overlays inputs) ]; }
+
+          # Declarative Flatpak support.
+          inputs.nix-flatpak.nixosModules.nix-flatpak
 
           # System-level configuration (see ./system/default.nix).
           ./system

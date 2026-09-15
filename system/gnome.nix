@@ -17,6 +17,8 @@
     gnomeExtensions.blur-my-shell # panel/dash/window blur
     gnomeExtensions.clipboard-indicator # clipboard history
     gnomeExtensions.wallpaper-slideshow # rotating wallpaper (azwallpaper)
+    gnomeExtensions.hide-top-bar # auto-hide the top bar
+    gnomeExtensions.just-perfection # tweak various GNOME settings
 
     # System tray icons. GNOME dropped the legacy tray; this restores it for
     # apps like Vesktop and Spotify.

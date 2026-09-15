@@ -26,11 +26,6 @@
       dotnet-sdk_10
       jdk25
 
-      (unityhub.override {
-        # Unity's asset pipeline shells out to 7-Zip.
-        extraLibs = pkgs: [ pkgs.p7zip ];
-      })
-
       # ----------------------------------------------------------------
       # Communication
       # ----------------------------------------------------------------

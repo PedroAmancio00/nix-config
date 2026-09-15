@@ -31,11 +31,14 @@
   programs.gamemode = {
     enable = true;
 
-    settings.general = {
-      # Priority boost applied to the game process. Values are subtracted from
-      # the process's nice value, so 10 means nice -10. Higher is more
-      # aggressive, but starving the compositor causes stutter.
-      renice = 10;
+    settings = {
+      general = {
+        renice = 10;
+      };
+
+      cpu = {
+        pin_cores = "0-7,16-23";
+      };
     };
   };
 }

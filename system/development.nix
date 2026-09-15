@@ -16,6 +16,7 @@
     glib
     icu
     ncurses
+    ncurses5
     expat
     libxml2_13
 
