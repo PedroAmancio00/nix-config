@@ -1,5 +1,5 @@
 # Desktop entries, autostart and default applications.
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   xdg = {
@@ -47,6 +47,49 @@
           # Must match the window class the app actually sets, otherwise the
           # running window does not bind to this launcher's dock icon.
           StartupWMClass = "com.github.dagmoller.whatsapp-electron";
+        };
+      };
+
+      # Zen ships without libavcodec on its LD_LIBRARY_PATH, so H.264, HEVC
+      # and AAC all report as unsupported in about:support - which breaks
+      # YouTube live streams and Instagram audio. Point it at system ffmpeg.
+      zen = {
+        name = "Zen Browser";
+        genericName = "Web Browser";
+        exec = "env LD_LIBRARY_PATH=${pkgs.ffmpeg.lib}/lib zen --name zen %U";
+        icon = "zen";
+        terminal = false;
+        startupNotify = true;
+        categories = [
+          "Network"
+          "WebBrowser"
+        ];
+        mimeType = [
+          "text/html"
+          "text/xml"
+          "application/xhtml+xml"
+          "application/vnd.mozilla.xul+xml"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+        ];
+
+        settings = {
+          StartupWMClass = "zen";
+        };
+
+        actions = {
+          new-private-window = {
+            name = "New Private Window";
+            exec = "env LD_LIBRARY_PATH=${pkgs.ffmpeg.lib}/lib zen --private-window %U";
+          };
+          new-window = {
+            name = "New Window";
+            exec = "env LD_LIBRARY_PATH=${pkgs.ffmpeg.lib}/lib zen --new-window %U";
+          };
+          profile-manager-window = {
+            name = "Profile Manager";
+            exec = "env LD_LIBRARY_PATH=${pkgs.ffmpeg.lib}/lib zen --ProfileManager";
+          };
         };
       };
     };

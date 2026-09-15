@@ -15,11 +15,13 @@
     alsa.support32Bit = true;
     pulse.enable = true;
 
-    # Run the graph at 192 kHz, but allow renegotiation down to whatever the
-    # source actually uses so no resampling happens unnecessarily.
+    # Force 32-bit samples at 192 kHz on ALSA sinks.
     extraConfig.pipewire."92-audio-quality" = {
       "context.properties" = {
-        "default.clock.rate" = 192000;
+        # Default rate. PipeWire switches to another allowed rate when a client
+        # requests one and no other stream is active, so this is a starting
+        # point rather than a ceiling.
+        "default.clock.rate" = 48000;
         "default.clock.allowed-rates" = [
           44100
           48000
@@ -29,27 +31,10 @@
           192000
         ];
 
-        # Buffer size. A larger default quantum favours stability; the min/max
-        # bounds let low-latency clients negotiate something smaller.
-        "default.clock.quantum" = 1024;
+        "default.clock.quantum" = 512;
         "default.clock.min-quantum" = 32;
         "default.clock.max-quantum" = 8192;
       };
-    };
-
-    # Force 32-bit samples at 192 kHz on ALSA sinks.
-    wireplumber.extraConfig."51-alsa-config".monitor.alsa = {
-      rules = [
-        {
-          matches = [ { "node.name" = "~alsa_output.*"; } ];
-          actions = {
-            update-props = {
-              "audio.format" = "S32LE";
-              "audio.rate" = 192000;
-            };
-          };
-        }
-      ];
     };
   };
 }

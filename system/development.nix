@@ -52,5 +52,8 @@
     nss
     nspr
     atk
+
+    #--- Video ---
+    ffmpeg
   ];
 }
