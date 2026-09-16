@@ -11,5 +11,6 @@
       schemeVariants = [ "dracula" ];
       colorVariants = [ "purple" ];
     })
+    ffmpeg
   ];
 }

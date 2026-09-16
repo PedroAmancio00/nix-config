@@ -1,60 +1,21 @@
-# Development runtimes and compatibility shims.
 { pkgs, ... }:
 
 {
-  # nix-ld provides a dynamic loader at the path that FHS-assuming binaries
-  # expect, so prebuilt executables (Unity, downloaded language servers,
-  # vendor SDKs) run without patching.
-  programs.nix-ld.enable = true;
+  environment.sessionVariables = {
+    LD_LIBRARY_PATH = "${pkgs.ncurses}/lib:${pkgs.stdenv.cc.cc.lib}/lib";
+  };
 
-  # Libraries exposed to those binaries. Extend this when a downloaded tool
-  # fails with "cannot open shared object file".
-  programs.nix-ld.libraries = with pkgs; [
-    # --- Core runtime ---
-    stdenv.cc.cc
-    zlib
-    glib
-    icu
-    ncurses
-    ncurses5
-    expat
-    libxml2_13
-    kitty
-
-    # --- Graphics ---
-    libGL
-    vulkan-loader
-    gdk-pixbuf
-    cairo
-    pango
-    gtk3
-
-    # --- Fonts and text ---
-    fontconfig
-    freetype
-
-    # --- X11 ---
-    libx11
-    libxcursor
-    libxrandr
-    libxi
-    libxext
-    libxrender
-    libxtst
-    libxkbcommon
-
-    # --- System services ---
-    dbus
-    udev
-    alsa-lib
-    cups
-
-    # --- Chromium/Electron runtime (NSS) ---
-    nss
-    nspr
-    atk
-
-    #--- Video ---
-    ffmpeg
+  environment.systemPackages = [
+    (pkgs.unityhub.override {
+      extraPkgs = fhsPkgs: with fhsPkgs; [
+        harfbuzz
+        libogg
+        ncurses
+        stdenv.cc.cc
+        libGL
+        libglvnd
+        vulkan-loader
+      ];
+    })
   ];
 }

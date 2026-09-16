@@ -12,6 +12,11 @@
       cB = ''
         git branch $argv[1] && git switch $argv[1]
       '';
+
+      unity = ''
+        env GDK_SCALE=2 GDK_DPI_SCALE=1 unityhub $argv >/dev/null 2>&1 &
+        disown
+      '';
     };
 
     interactiveShellInit = ''

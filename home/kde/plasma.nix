@@ -38,6 +38,12 @@
     ##############################################################
 
     configFile = {
+      "kwinrc"."Windows" = {
+        # Placement: 0 = Smart, 1 = Maximizing, 2 = Cascade, 3 = Random, 4 = Centered, 5 = Zero-Cornered, 6 = Under Mouse
+        Placement = "Centered";
+      };
+      # Desliga “lembrar posição” (ajuda muito no multi-monitor)
+      "kwinrc"."Windows"."AllowWindowActivation" = true;
       kcminputrc = {
         Mouse = {
           cursorHighlight = false;
@@ -66,6 +72,28 @@
       turnOffDisplay.idleTimeout = 600;
       powerButtonAction = "showLogoutScreen";
     };
+
+    window-rules = [
+      {
+        description = "Abrir sempre no monitor principal";
+        match = {
+          # casa com praticamente todas as janelas normais
+          window-types = [ "normal" ];
+        };
+        apply = {
+          # 0 = primeiro monitor na ordem de prioridade do KDE (= seu primary / DP-1)
+          screen = {
+            value = 0;
+            apply = "force";
+          };
+          # ignora a geometria que o app pede (senão ele volta pro 2º monitor)
+          ignoregeometry = {
+            value = true;
+            apply = "force";
+          };
+        };
+      }
+    ];
 
     ##############################################################
     # Panels

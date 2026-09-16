@@ -16,9 +16,9 @@
       }
     ];
 
-    packages = [
-      "com.unity.UnityHub"
-    ];
+    # packages = [
+    #   "com.unity.UnityHub"
+    # ];
 
     # Remove applications that are no longer declared above.
     uninstallUnmanaged = true;

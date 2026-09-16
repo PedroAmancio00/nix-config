@@ -19,7 +19,8 @@
       git
       github-desktop
       git-credential-manager
-
+      unityhub
+      
       # Language runtimes and SDKs
       python3
       nodejs_24
