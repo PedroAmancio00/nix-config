@@ -53,20 +53,18 @@
           shakecursorEnabled = false;
         };
       };
-
-      powermanagementprofilesrc = {
-        "AC/DimDisplay".idleTime = 300000; # 5 min, in milliseconds
-        "AC/DPMSControl".idleTime = 600; # 10 min, in seconds
-        "AC/SuspendSession" = {
-          idleTime = 0;
-          suspendType = 0; # 0 = do nothing
-        };
-      };
     };
 
     kscreenlocker = {
       autoLock = false;
       lockOnResume = false;
+    };
+
+    powerdevil.AC = {
+      autoSuspend.action = "nothing";
+      dimDisplay.idleTimeout = 300;
+      turnOffDisplay.idleTimeout = 600;
+      powerButtonAction = "showLogoutScreen";
     };
 
     ##############################################################
