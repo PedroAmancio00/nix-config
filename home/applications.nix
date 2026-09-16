@@ -18,7 +18,7 @@
         name = "Discord";
         genericName = "Discord";
         exec = "vesktop %U";
-        icon = "${config.home.homeDirectory}/.icons/meu-icone-customizado.png";
+        icon = "discord";
         terminal = false;
         categories = [
           "Network"
@@ -97,7 +97,6 @@
     ##############################################################
     # Autostart
     ##############################################################
-
     configFile = {
       # mimeapps.list is rewritten by applications whenever the user picks a
       # new default, so Home Manager needs permission to overwrite it.
@@ -108,7 +107,7 @@
       "autostart/vesktop.desktop".text = ''
         [Desktop Entry]
         Type=Application
-        Exec=sh -c "sleep 8 && vesktop"
+        Exec=sh -c "sleep 10 && vesktop"
         Name=Vesktop
         X-GNOME-Autostart-enabled=true
       '';

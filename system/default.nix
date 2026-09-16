@@ -17,15 +17,17 @@
     ./locale.nix
     ./users.nix
     ./desktop.nix
-    ./gnome.nix
-    # enable hyprland
-    #./hyprland.nix
     ./fonts.nix
     ./shell.nix
     ./gaming.nix
     ./development.nix
     ./packages.nix
     ./flatpak.nix
+
+    #enable gnome
+    #./gnome.nix
+    # enable hyprland
+    #./hyprland.nix
   ];
 
   # The NixOS release this machine was first installed with.

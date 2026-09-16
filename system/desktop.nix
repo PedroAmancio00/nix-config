@@ -6,8 +6,11 @@
   # on Wayland; this does not force an X11 session.
   services.xserver.enable = true;
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # enable Gnome
+  #services.displayManager.gdm.enable = true;
+  #services.desktopManager.gnome.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Keyboard layout for the login screen and for TTYs. Note that under a
   # Wayland GNOME session, Mutter manages XKB itself and reads its layouts
@@ -27,6 +30,12 @@
     # The GNOME backend is normally pulled in by the desktop module, but
     # naming it explicitly avoids falling back to the GTK portal when another
     # backend is also present.
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = [
+      #enable gnome
+      #pkgs.xdg-desktop-portal-gnome
+
+      #enable kde
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
   };
 }

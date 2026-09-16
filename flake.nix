@@ -19,9 +19,16 @@
 
     # Upstream source for the MacTahoe GTK theme. Marked `flake = false`
     # because the repository is a plain Git tree with no flake.nix.
-    mactahoe-gtk-src = {
-      url = "github:vinceliuice/MacTahoe-gtk-theme";
-      flake = false;
+    # enable gnome
+    # mactahoe-gtk-src = {
+    #   url = "github:vinceliuice/MacTahoe-gtk-theme";
+    #   flake = false;
+    # };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     # enable hyprland
@@ -36,6 +43,7 @@
       self,
       nixpkgs,
       home-manager,
+      plasma-manager,
       ...
     }@inputs:
     let
@@ -52,7 +60,8 @@
 
         modules = [
           # Custom packages and package overrides.
-          { nixpkgs.overlays = [ (import ./overlays inputs) ]; }
+          # enable gnome
+          #{ nixpkgs.overlays = [ (import ./overlays inputs) ]; }
 
           # Declarative Flatpak support.
           inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -81,6 +90,7 @@
               # here, so a conflicting file is always stale state.
               backupFileExtension = null;
               backupCommand = "rm -f";
+              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             };
           }
         ];

@@ -15,5 +15,6 @@
     ./extensions.nix
     ./keybindings.nix
     ./power.nix
+    ./theming.nix
   ];
 }

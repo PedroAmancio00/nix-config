@@ -42,13 +42,15 @@
       # ----------------------------------------------------------------
       # Terminal and system utilities
       # ----------------------------------------------------------------
-      ptyxis # GNOME terminal
+      # enable gnome
+      #ptyxis # GNOME terminal
       fastfetch # system summary, run on shell start
       btop # process/resource monitor
       psmisc # killall, fuser, pstree
       jq # JSON processor
       pciutils # lspci
       usbutils # lsusb
+      desktop-file-utils
 
       # Provides `pactl`, which the Steam client shells out to for volume
       # control. PipeWire's pulse layer answers it.

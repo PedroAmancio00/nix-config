@@ -7,9 +7,8 @@
 
 {
   home.packages = with pkgs; [
-    (colloid-icon-theme.override {
-      schemeVariants = [ "dracula" ];
-      colorVariants = [ "purple" ];
-    })
+    # NOTE: the Colloid icon theme moved to home/kde/theming.nix, where it is
+    # installed as gtk.iconTheme.package. Declaring it here as well would
+    # build the same derivation into two profile paths.
   ];
 }

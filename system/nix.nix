@@ -21,6 +21,10 @@
     automatic = true;
     dates = [ "weekly" ];
   };
+  systemd.coredump.settings.Coredump = {
+    MaxUse = "1G";
+    MaxRetentionSec = "1week";
+  };
   # Required by Steam, NVIDIA drivers, VS Code, Spotify and others.
   nixpkgs.config.allowUnfree = true;
 }
