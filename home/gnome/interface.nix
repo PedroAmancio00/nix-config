@@ -1,5 +1,5 @@
 # Appearance, fonts and window decorations.
-{ ... }:
+{ lib, ... }:
 
 {
   dconf.settings = {
@@ -45,4 +45,17 @@
       font-name = "JetBrainsMono Nerd Font 11";
     };
   };
+
+  home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    for f in ~/.local/share/applications/*.desktop; do
+      id=$(grep -Eo 'steam://rungameid/[0-9]+' "$f" | sed 's#.*/##') || true
+      [ -n "$id" ] || continue
+
+      want="StartupWMClass=steam_app_$id"
+
+      if ! grep -q "^StartupWMClass=" "$f"; then
+        echo "$want" >> "$f"
+      fi
+    done
+  '';
 }

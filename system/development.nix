@@ -19,6 +19,7 @@
     ncurses5
     expat
     libxml2_13
+    kitty
 
     # --- Graphics ---
     libGL

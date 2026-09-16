@@ -18,6 +18,8 @@
     ./users.nix
     ./desktop.nix
     ./gnome.nix
+    # enable hyprland
+    #./hyprland.nix
     ./fonts.nix
     ./shell.nix
     ./gaming.nix

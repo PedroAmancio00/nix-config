@@ -23,6 +23,12 @@
       url = "github:vinceliuice/MacTahoe-gtk-theme";
       flake = false;
     };
+
+    # enable hyprland
+    # caelestia-shell = {
+    #   url = "github:caelestia-dots/shell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
